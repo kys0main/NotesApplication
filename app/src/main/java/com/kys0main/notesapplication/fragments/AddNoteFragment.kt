@@ -24,7 +24,6 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
     private var addNoteBinding : FragmentAddNoteBinding? = null
     private val binding get() = addNoteBinding!!
-
     private lateinit var notesViewModel : NoteViewModel
     private lateinit var addNoteView : View
 
@@ -80,5 +79,4 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
         super.onDestroy()
         addNoteBinding = null
     }
-
 }

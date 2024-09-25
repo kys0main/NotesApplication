@@ -28,10 +28,8 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
     private var editNoteBinding : FragmentEditNoteBinding? = null
     private val binding get() = editNoteBinding!!
-
     private lateinit var notesViewModel : NoteViewModel
     private lateinit var currentNote : Note
-
     private val args: EditNoteFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -44,20 +42,15 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val menuHost : MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
         notesViewModel = (activity as MainActivity).noteViewModel
         currentNote = args.note!!
-
         binding.editNoteTitle.setText(currentNote.noteTitle)
         binding.editNoteDesc.setText(currentNote.noteDesc)
-
         binding.editNoteFab.setOnClickListener{
             val noteTitle = binding.editNoteTitle.text.toString().trim()
             val noteDesc = binding.editNoteDesc.text.toString().trim()
-
             if(noteTitle.isNotEmpty()){
                 val note = Note(currentNote.id, noteTitle, noteDesc)
                 notesViewModel.updateNote(note)
@@ -80,6 +73,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             setNegativeButton("Cancel", null)
         }.create().show()
     }
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menu.clear()
         menuInflater.inflate(R.menu.menu_edit_note, menu)

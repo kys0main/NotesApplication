@@ -31,7 +31,7 @@
             android:padding="12dp"
             android:textSize="20sp"
             android:layout_below="@id/editNoteHeading"
-            android:background="@drawable/pink_border"
+            android:background="@drawable/yellow_border"
             android:layout_marginTop="16dp"
             android:maxLines="1"
             android:fontFamily="@font/poppins"/>
@@ -45,7 +45,7 @@
             android:padding="12dp"
             android:textSize="18sp"
             android:fontFamily="@font/poppins"
-            android:background="@drawable/pink_border"
+            android:background="@drawable/yellow_border"
             android:layout_below="@id/editNoteTitle"
             android:layout_marginTop="12dp" />
 
