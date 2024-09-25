@@ -26,7 +26,7 @@ import com.kys0main.notesapplication.model.Note
 import com.kys0main.notesapplication.viewmodel.NoteViewModel
 
 
-class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, SearchView.OnCloseListener, MenuProvider {
+class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
 
     private var homeBinding : FragmentHomeBinding? = null
     private val binding get() = homeBinding!!
@@ -38,7 +38,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        searchQuery = null
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -87,18 +86,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        return true
+        return false
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
         if(newText!=null){
             searchNote(newText)
         }
-        return true
-    }
-
-    override fun onClose() : Boolean {
-        Toast.makeText(activity, "Menu onClose", Toast.LENGTH_SHORT).show()
         return true
     }
 
